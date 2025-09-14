@@ -1,0 +1,128 @@
+# 🚀 Angular User Management UI Setup
+
+## 📋 Prerequisites
+- Node.js 18+
+- Angular CLI (`npm install -g @angular/cli`)
+- Your Micronaut backend running on `http://localhost:8080`
+
+## 🏗️ Project Setup
+
+### 1. Create Project Directory
+```bash
+mkdir user-management-ui
+cd user-management-ui
+```
+
+### 2. Copy All Files
+Copy each artifact file to its corresponding location:
+
+```
+user-management-ui/
+├── package.json
+├── angular.json
+├── proxy.conf.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── src/
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   ├── styles.scss
+│   └── app/
+│       ├── app.module.ts
+│       ├── app-routing.module.ts
+│       ├── app.component.ts
+│       ├── services/
+│       │   ├── auth.service.ts
+│       │   └── user.service.ts
+│       ├── interceptors/
+│       │   └── auth.interceptor.ts
+│       ├── guards/
+│       │   ├── auth.guard.ts
+│       │   └── admin.guard.ts
+│       ├── pipes/
+│       │   └── has-role.pipe.ts
+│       └── components/
+│           ├── navbar/
+│           │   └── navbar.component.ts
+│           ├── login/
+│           │   └── login.component.ts
+│           ├── register/
+│           │   └── register.component.ts
+│           ├── dashboard/
+│           │   └── dashboard.component.ts
+│           ├── profile/
+│           │   └── profile.component.ts
+│           └── user-list/
+│               └── user-list.component.ts
+```
+
+### 3. Install Dependencies
+```bash
+npm install
+```
+
+### 4. Start Development Server
+```bash
+npm start
+```
+
+The application will be available at `http://localhost:4200`
+
+## 🎯 Features Included
+
+### ✅ **Authentication & Authorization**
+- JWT token-based authentication
+- Login/Register forms with validation
+- Route guards for protected pages
+- Role-based access control (ADMIN/USER)
+- Auto-logout on token expiry
+
+### ✅ **User Interface Components**
+- **Dashboard** - Welcome page with quick actions
+- **Profile** - View and edit user profile
+- **User Management** - Admin-only user listing and management
+- **Navbar** - Navigation with user menu
+- **Responsive Design** - Mobile-friendly Material Design
+
+### ✅ **Technical Features**
+- HTTP Interceptor for automatic JWT token injection
+- Proxy configuration for backend API calls
+- Form validation with Angular Reactive Forms
+- Error handling and user feedback
+- Material Design components
+- TypeScript strict mode
+
+## 🔐 Default Login Credentials
+- **Username:** `admin`
+- **Password:** `admin123`
+
+## 📱 Pages & Routes
+- `/login` - Login page
+- `/register` - User registration
+- `/dashboard` - Main dashboard (protected)
+- `/profile` - User profile management (protected)
+- `/users` - User management (admin only)
+
+## 🎨 UI Screenshots Preview
+- **Modern Material Design** with indigo/pink theme
+- **Responsive layout** that works on desktop and mobile
+- **Professional dashboard** with cards and statistics
+- **Data tables** for user management
+- **Form validation** with real-time feedback
+- **Snackbar notifications** for user feedback
+
+## 🔧 API Integration
+The Angular app automatically proxies API calls to your Micronaut backend:
+- `/api/*` → `http://localhost:8080/api/*`
+- `/auth/*` → `http://localhost:8080/auth/*`
+- `/login` → `http://localhost:8080/login`
+
+## 🚀 Ready to Use!
+1. Make sure your Micronaut backend is running on port 8080
+2. Start the Angular development server: `npm start`
+3. Navigate to `http://localhost:4200`
+4. Login with admin/admin123 credentials
+5. Explore all the features!
+
+The UI is fully integrated with your Micronaut API and ready for production use! 🎉

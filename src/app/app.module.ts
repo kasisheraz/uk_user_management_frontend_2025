@@ -1,0 +1,80 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+// Material Design imports
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDividerModule } from '@angular/material/divider';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+// import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HasRolePipe } from './pipes/has-role.pipe';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    UserListComponent,
+    // ProfileComponent,
+    NavbarComponent,
+    HasRolePipe
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    
+    // Material Design
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatDividerModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    provideAnimationsAsync()
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
