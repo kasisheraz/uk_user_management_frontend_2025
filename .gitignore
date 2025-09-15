@@ -1,3 +1,22 @@
 # Ignore Angular cache files
+
+# IntelliJ IDEA
+.idea
+*.iml
+build/
+# eclipse
+.project
+
+# VS Code
+.vscode/
+
+# NPM
+node/
+node_modules/
+package-lock.json
+npm-debug.log
+.angular/
+.angular-cli.json
+*.log
 .angular/cache/
 .angular/cache/17.3.8/angular-webpack/8beb28e93993bf1eb75cdb991e54b2aa2ea9962d/0.pack
