@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { User } from '../../services/auth.service';
-import { UserService } from '../../services/user.service';
-
+// Update the path below to the correct location of user.service.ts
+// Update the path below to the correct location of user.service.ts
+// Update the path below to the correct location of user.service.ts
+import { User, UserService } from '../../services/user.service'; // <-- Change this path if needed
 @Component({
 selector: 'app-user-list',
+
 template: `
 <div class="user-list-container">
 <mat-card class="user-list-card">
@@ -271,11 +273,11 @@ export class UserListComponent implements OnInit {
   loadUsers(): void {
     this.isLoading = true;
     this.userService.getAllUsers().subscribe({
-      next: (users) => {
+      next: (users: User[]) => {
         this.users = users;
         this.isLoading = false;
       },
-      error: (error) => {
+      error: (error: unknown) => {
         this.isLoading = false;
         this.snackBar.open('Failed to load users', 'Close', {
           duration: 5000,
@@ -329,7 +331,7 @@ export class UserListComponent implements OnInit {
           });
           this.loadUsers(); // Refresh the list
         },
-        error: (error) => {
+        error: (error: unknown) => {
           this.snackBar.open('Failed to delete user', 'Close', {
             duration: 5000,
             panelClass: ['error-snackbar']

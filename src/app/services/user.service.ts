@@ -27,3 +27,5 @@ export class UserService {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 }
+
+export type { User };
